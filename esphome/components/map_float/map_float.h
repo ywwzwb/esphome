@@ -7,7 +7,7 @@
 namespace esphome {
 namespace map_float {
 
-class MapFloat : public Component, output::FloatOutput {
+class MapFloat : public output::FloatOutput, public Component {
  public:
   MapFloat() {}
   void dump_config() override;

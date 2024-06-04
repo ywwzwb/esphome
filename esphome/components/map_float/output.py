@@ -7,7 +7,7 @@ from esphome.const import (
 )
 
 map_float_ns = cg.esphome_ns.namespace("map_float")
-MapFloat = map_float_ns.class_("MapFloat", output.FloatOutput)
+MapFloat = map_float_ns.class_("MapFloat", output.FloatOutput, cg.Component)
 
 CONFIG_SCHEMA = cv.All(
     output.FLOAT_OUTPUT_SCHEMA.extend(
