@@ -9,12 +9,13 @@ from esphome.const import (
 map_float_ns = cg.esphome_ns.namespace("map_float")
 MapFloat = map_float_ns.class_("MapFloat", output.FloatOutput)
 
-CONFIG_SCHEMA = cv.Schema(
+CONFIG_SCHEMA = cv.All(
+    output.FLOAT_OUTPUT_SCHEMA.extend(
     {
         cv.GenerateID(): cv.declare_id(MapFloat),
         cv.Required(CONF_OUTPUT): cv.use_id(output.FloatOutput),
     }
-).extend(cv.COMPONENT_SCHEMA)
+).extend(cv.COMPONENT_SCHEMA))
 
 
 async def to_code(config):
