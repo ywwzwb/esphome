@@ -11,7 +11,7 @@ void MapFloat::dump_config() {
 void MapFloat::write_state(float state) {
   float mapped_state = state * (this->max_power_ - this->min_power_) + this->min_power_;
   if (this->zero_means_zero_ && state < 0.001) {
-    mapped_state == 0;
+    mapped_state = 0;
   }
   this->output_->set_state(mapped_state);
   ESP_LOGD(TAG, "mapped state: %d", state);
